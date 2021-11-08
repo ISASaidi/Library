@@ -28,6 +28,7 @@ namespace Library
             btnSave.Enabled = false;// Waar moet ik het plaatsen
             Thread.Sleep(1000);
             btnSave.Enabled = true;
+
             using SqlConnection connection = new SqlConnection(conn);
 
             using var command = connection.CreateCommand();
