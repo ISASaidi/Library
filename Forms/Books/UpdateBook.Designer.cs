@@ -40,14 +40,18 @@ namespace Library
             this.lbEdition = new System.Windows.Forms.Label();
             this.lbTitle = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.checkBoxBorrowed = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtIsbn = new System.Windows.Forms.TextBox();
+            this.comboBoxStatus = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSave
             // 
-            this.btnSave.Font = new System.Drawing.Font("Segoe UI Symbol", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSave.Location = new System.Drawing.Point(160, 350);
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSave.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSave.Location = new System.Drawing.Point(239, 424);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(72, 27);
             this.btnSave.TabIndex = 17;
@@ -57,28 +61,28 @@ namespace Library
             // 
             // txtGenre
             // 
-            this.txtGenre.Location = new System.Drawing.Point(121, 251);
+            this.txtGenre.Location = new System.Drawing.Point(130, 331);
             this.txtGenre.Name = "txtGenre";
             this.txtGenre.Size = new System.Drawing.Size(181, 23);
             this.txtGenre.TabIndex = 16;
             // 
             // txtAuthor
             // 
-            this.txtAuthor.Location = new System.Drawing.Point(121, 207);
+            this.txtAuthor.Location = new System.Drawing.Point(130, 294);
             this.txtAuthor.Name = "txtAuthor";
             this.txtAuthor.Size = new System.Drawing.Size(181, 23);
             this.txtAuthor.TabIndex = 15;
             // 
             // txtEdition
             // 
-            this.txtEdition.Location = new System.Drawing.Point(121, 160);
+            this.txtEdition.Location = new System.Drawing.Point(130, 252);
             this.txtEdition.Name = "txtEdition";
             this.txtEdition.Size = new System.Drawing.Size(181, 23);
             this.txtEdition.TabIndex = 14;
             // 
             // txtTitle
             // 
-            this.txtTitle.Location = new System.Drawing.Point(121, 118);
+            this.txtTitle.Location = new System.Drawing.Point(130, 206);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(181, 23);
             this.txtTitle.TabIndex = 13;
@@ -86,40 +90,40 @@ namespace Library
             // lbGenre
             // 
             this.lbGenre.AutoSize = true;
-            this.lbGenre.Font = new System.Drawing.Font("Segoe UI Symbol", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbGenre.Location = new System.Drawing.Point(27, 251);
+            this.lbGenre.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbGenre.Location = new System.Drawing.Point(32, 337);
             this.lbGenre.Name = "lbGenre";
-            this.lbGenre.Size = new System.Drawing.Size(57, 17);
+            this.lbGenre.Size = new System.Drawing.Size(51, 15);
             this.lbGenre.TabIndex = 12;
             this.lbGenre.Text = "Genre :";
             // 
             // lbAuthor
             // 
             this.lbAuthor.AutoSize = true;
-            this.lbAuthor.Font = new System.Drawing.Font("Segoe UI Symbol", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbAuthor.Location = new System.Drawing.Point(27, 213);
+            this.lbAuthor.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbAuthor.Location = new System.Drawing.Point(32, 300);
             this.lbAuthor.Name = "lbAuthor";
-            this.lbAuthor.Size = new System.Drawing.Size(62, 17);
+            this.lbAuthor.Size = new System.Drawing.Size(58, 15);
             this.lbAuthor.TabIndex = 11;
             this.lbAuthor.Text = "Author :";
             // 
             // lbEdition
             // 
             this.lbEdition.AutoSize = true;
-            this.lbEdition.Font = new System.Drawing.Font("Segoe UI Symbol", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbEdition.Location = new System.Drawing.Point(27, 166);
+            this.lbEdition.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbEdition.Location = new System.Drawing.Point(32, 258);
             this.lbEdition.Name = "lbEdition";
-            this.lbEdition.Size = new System.Drawing.Size(69, 17);
+            this.lbEdition.Size = new System.Drawing.Size(63, 15);
             this.lbEdition.TabIndex = 10;
             this.lbEdition.Text = "Edition  :";
             // 
             // lbTitle
             // 
             this.lbTitle.AutoSize = true;
-            this.lbTitle.Font = new System.Drawing.Font("Segoe UI Symbol", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbTitle.Location = new System.Drawing.Point(27, 118);
+            this.lbTitle.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbTitle.Location = new System.Drawing.Point(32, 212);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(46, 17);
+            this.lbTitle.Size = new System.Drawing.Size(43, 15);
             this.lbTitle.TabIndex = 9;
             this.lbTitle.Text = "Title :";
             // 
@@ -128,30 +132,59 @@ namespace Library
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(27, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(275, 100);
+            this.pictureBox1.Size = new System.Drawing.Size(275, 141);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 18;
             this.pictureBox1.TabStop = false;
             // 
-            // checkBoxBorrowed
+            // label1
             // 
-            this.checkBoxBorrowed.AutoSize = true;
-            this.checkBoxBorrowed.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.checkBoxBorrowed.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.checkBoxBorrowed.Location = new System.Drawing.Point(121, 295);
-            this.checkBoxBorrowed.Name = "checkBoxBorrowed";
-            this.checkBoxBorrowed.Size = new System.Drawing.Size(84, 21);
-            this.checkBoxBorrowed.TabIndex = 20;
-            this.checkBoxBorrowed.Text = "Borrowed";
-            this.checkBoxBorrowed.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(32, 177);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 15);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "ISBN :";
+            // 
+            // txtIsbn
+            // 
+            this.txtIsbn.Location = new System.Drawing.Point(130, 171);
+            this.txtIsbn.Name = "txtIsbn";
+            this.txtIsbn.Size = new System.Drawing.Size(181, 23);
+            this.txtIsbn.TabIndex = 22;
+            // 
+            // comboBoxStatus
+            // 
+            this.comboBoxStatus.FormattingEnabled = true;
+            this.comboBoxStatus.Items.AddRange(new object[] {
+            "Borrowed",
+            "Free"});
+            this.comboBoxStatus.Location = new System.Drawing.Point(130, 370);
+            this.comboBoxStatus.Name = "comboBoxStatus";
+            this.comboBoxStatus.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxStatus.TabIndex = 24;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(32, 376);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 15);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Status :";
             // 
             // UpdateBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(323, 389);
-            this.Controls.Add(this.checkBoxBorrowed);
+            this.ClientSize = new System.Drawing.Size(323, 479);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.comboBoxStatus);
+            this.Controls.Add(this.txtIsbn);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtGenre);
@@ -185,6 +218,9 @@ namespace Library
         private System.Windows.Forms.Label lbEdition;
         private System.Windows.Forms.Label lbTitle;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.CheckBox checkBoxBorrowed;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtIsbn;
+        private System.Windows.Forms.ComboBox comboBoxStatus;
+        private System.Windows.Forms.Label label2;
     }
 }

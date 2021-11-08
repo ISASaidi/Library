@@ -40,7 +40,7 @@ namespace Library
             using SqlConnection connection = new SqlConnection(conn);
 
             var command = connection.CreateCommand();
-            command.CommandText = "select from [TableBook] where Title='" + txtSearchTitle + "'";// chercher à partir du ISBN
+            command.CommandText = "select from [TableBook] where Isbn='" + txtSearchIsbn.Text + "'";
             using var reader = command.ExecuteReader();
             reader.Read();
         }

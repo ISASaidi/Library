@@ -31,7 +31,7 @@ namespace Library
         {
             this.dataGridViewBook = new System.Windows.Forms.DataGridView();
             this.lbSearch = new System.Windows.Forms.Label();
-            this.txtSearchTitle = new System.Windows.Forms.TextBox();
+            this.txtSearchIsbn = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBook)).BeginInit();
             this.SuspendLayout();
@@ -43,6 +43,7 @@ namespace Library
             this.dataGridViewBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewBook.Location = new System.Drawing.Point(12, 12);
             this.dataGridViewBook.Name = "dataGridViewBook";
+            this.dataGridViewBook.ReadOnly = true;
             this.dataGridViewBook.RowTemplate.Height = 25;
             this.dataGridViewBook.Size = new System.Drawing.Size(776, 357);
             this.dataGridViewBook.TabIndex = 0;
@@ -50,25 +51,26 @@ namespace Library
             // lbSearch
             // 
             this.lbSearch.AutoSize = true;
-            this.lbSearch.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbSearch.Location = new System.Drawing.Point(12, 403);
+            this.lbSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbSearch.Location = new System.Drawing.Point(12, 398);
             this.lbSearch.Name = "lbSearch";
-            this.lbSearch.Size = new System.Drawing.Size(130, 20);
+            this.lbSearch.Size = new System.Drawing.Size(110, 15);
             this.lbSearch.TabIndex = 1;
-            this.lbSearch.Text = "Search with title :";
+            this.lbSearch.Text = "Search with ISBN :";
             // 
-            // txtSearchTitle
+            // txtSearchIsbn
             // 
-            this.txtSearchTitle.Location = new System.Drawing.Point(164, 403);
-            this.txtSearchTitle.Name = "txtSearchTitle";
-            this.txtSearchTitle.Size = new System.Drawing.Size(341, 23);
-            this.txtSearchTitle.TabIndex = 2;
-            this.txtSearchTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtSearchIsbn.Location = new System.Drawing.Point(128, 394);
+            this.txtSearchIsbn.Name = "txtSearchIsbn";
+            this.txtSearchIsbn.Size = new System.Drawing.Size(114, 23);
+            this.txtSearchIsbn.TabIndex = 2;
+            this.txtSearchIsbn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnSearch
             // 
-            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSearch.Location = new System.Drawing.Point(542, 403);
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSearch.Location = new System.Drawing.Point(268, 394);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 4;
@@ -83,7 +85,7 @@ namespace Library
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.txtSearchTitle);
+            this.Controls.Add(this.txtSearchIsbn);
             this.Controls.Add(this.lbSearch);
             this.Controls.Add(this.dataGridViewBook);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -102,7 +104,7 @@ namespace Library
 
         private System.Windows.Forms.DataGridView dataGridViewBook;
         private System.Windows.Forms.Label lbSearch;
-        private System.Windows.Forms.TextBox txtSearchTitle;
+        private System.Windows.Forms.TextBox txtSearchIsbn;
         private System.Windows.Forms.Button btnSearch;
     }
 }

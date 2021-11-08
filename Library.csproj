@@ -10,7 +10,7 @@
     <Compile Update="Forms\Authentication.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Update="Forms\Books\Add_Remove_Book.cs">
+    <Compile Update="Forms\Books\AddBook.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Update="Forms\Books\UpdateBook.cs">
@@ -19,13 +19,13 @@
     <Compile Update="Forms\Books\ViewBooks.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Update="Forms\Borrowing_Returning.cs">
+    <Compile Update="Forms\Books\BorrowBook.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Update="Forms\MainForm.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Update="Forms\Member\Add_Remove_Member.cs">
+    <Compile Update="Forms\Member\AddMember.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Update="Forms\Member\UpdateMember.cs">

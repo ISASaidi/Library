@@ -14,7 +14,7 @@ namespace Library
     public partial class ViewMember : Form
     {
 
-        string conn = "@Data Source = (local); Initial Catalog = Library; Integrated Security = True";
+        string conn = "Data Source = (local); Initial Catalog = Library; Integrated Security = True";
 
         public ViewMember()
         {
@@ -25,7 +25,7 @@ namespace Library
         {
             using SqlConnection connection = new SqlConnection(conn);
 
-            var command = connection.CreateCommand();
+           using  var command = connection.CreateCommand();
             command.CommandText = "select * from [TableMember]";
 
             SqlDataAdapter da = new SqlDataAdapter(command);
@@ -40,7 +40,7 @@ namespace Library
             using SqlConnection connection = new SqlConnection(conn);
 
             var command = connection.CreateCommand();
-            command.CommandText = "select from [TableMember] where Title='" + txtSearchFirstName + "'";// comment chercher à partir du ISBN
+            command.CommandText = "select from [TableMember] where Member_Id='" + txtSearchMember_Id.Text + "'";
             using var reader = command.ExecuteReader();
             reader.Read();
         }

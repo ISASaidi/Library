@@ -1,7 +1,7 @@
 ﻿
 namespace Library
 {
-    partial class Borrowing_Returning
+    partial class BorrowBook
     {
         /// <summary>
         /// Required designer variable.
@@ -39,35 +39,36 @@ namespace Library
             this.dateTimePickerPurchaseDate = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerReturnDate = new System.Windows.Forms.DateTimePicker();
             this.dataGridViewBorrows = new System.Windows.Forms.DataGridView();
-            this.checkBoxBorrow = new System.Windows.Forms.CheckBox();
-            this.checkBoxReturn = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBorrows)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(38, 74);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 15);
+            this.label1.Size = new System.Drawing.Size(41, 15);
             this.label1.TabIndex = 2;
             this.label1.Text = "ISBN :";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(38, 103);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 15);
+            this.label2.Size = new System.Drawing.Size(76, 15);
             this.label2.TabIndex = 3;
             this.label2.Text = "Member_id :";
             // 
             // lbPurchaseDate
             // 
             this.lbPurchaseDate.AutoSize = true;
+            this.lbPurchaseDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbPurchaseDate.Location = new System.Drawing.Point(38, 135);
             this.lbPurchaseDate.Name = "lbPurchaseDate";
-            this.lbPurchaseDate.Size = new System.Drawing.Size(81, 15);
+            this.lbPurchaseDate.Size = new System.Drawing.Size(85, 15);
             this.lbPurchaseDate.TabIndex = 4;
             this.lbPurchaseDate.Text = "Purchase date";
             // 
@@ -87,7 +88,8 @@ namespace Library
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(143, 229);
+            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSave.Location = new System.Drawing.Point(268, 229);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 8;
@@ -98,9 +100,10 @@ namespace Library
             // lbReturnDate
             // 
             this.lbReturnDate.AutoSize = true;
+            this.lbReturnDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbReturnDate.Location = new System.Drawing.Point(38, 167);
             this.lbReturnDate.Name = "lbReturnDate";
-            this.lbReturnDate.Size = new System.Drawing.Size(69, 15);
+            this.lbReturnDate.Size = new System.Drawing.Size(76, 15);
             this.lbReturnDate.TabIndex = 9;
             this.lbReturnDate.Text = "Return Date";
             // 
@@ -129,34 +132,12 @@ namespace Library
             this.dataGridViewBorrows.Size = new System.Drawing.Size(336, 186);
             this.dataGridViewBorrows.TabIndex = 12;
             // 
-            // checkBoxBorrow
-            // 
-            this.checkBoxBorrow.AutoSize = true;
-            this.checkBoxBorrow.Location = new System.Drawing.Point(143, 189);
-            this.checkBoxBorrow.Name = "checkBoxBorrow";
-            this.checkBoxBorrow.Size = new System.Drawing.Size(64, 19);
-            this.checkBoxBorrow.TabIndex = 13;
-            this.checkBoxBorrow.Text = "Borrow";
-            this.checkBoxBorrow.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxReturn
-            // 
-            this.checkBoxReturn.AutoSize = true;
-            this.checkBoxReturn.Location = new System.Drawing.Point(260, 188);
-            this.checkBoxReturn.Name = "checkBoxReturn";
-            this.checkBoxReturn.Size = new System.Drawing.Size(61, 19);
-            this.checkBoxReturn.TabIndex = 14;
-            this.checkBoxReturn.Text = "Return";
-            this.checkBoxReturn.UseVisualStyleBackColor = true;
-            // 
-            // Borrowing_Returning
+            // BorrowBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(746, 264);
-            this.Controls.Add(this.checkBoxReturn);
-            this.Controls.Add(this.checkBoxBorrow);
+            this.ClientSize = new System.Drawing.Size(746, 289);
             this.Controls.Add(this.dataGridViewBorrows);
             this.Controls.Add(this.dateTimePickerReturnDate);
             this.Controls.Add(this.dateTimePickerPurchaseDate);
@@ -169,9 +150,9 @@ namespace Library
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
-            this.Name = "Borrowing_Returning";
+            this.Name = "BorrowBook";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Borrow/Return";
+            this.Text = "Borrow Book";
             this.Load += new System.EventHandler(this.Borrowing_Returning_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBorrows)).EndInit();
             this.ResumeLayout(false);
@@ -190,7 +171,5 @@ namespace Library
         private System.Windows.Forms.DateTimePicker dateTimePickerPurchaseDate;
         private System.Windows.Forms.DateTimePicker dateTimePickerReturnDate;
         private System.Windows.Forms.DataGridView dataGridViewBorrows;
-        private System.Windows.Forms.CheckBox checkBoxBorrow;
-        private System.Windows.Forms.CheckBox checkBoxReturn;
     }
 }

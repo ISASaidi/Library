@@ -23,7 +23,7 @@ namespace Library
             using SqlConnection connection = new SqlConnection("Data Source=(local);Initial Catalog=Library;Integrated Security=True");
 
             var command = connection.CreateCommand();
-            command.CommandText = "UPDATE [TableMember] SET [FirstName]=@FirstName, [LastName]=@LastName, [Address]=@Address, [HouseNumber]=@HouseNumber, [ZipCode]=@ZipCode, [City]=@City, [Phone_number]=@Phone_number, [Mail]=@Mail";
+            command.CommandText = "UPDATE [TableMember] SET [FirstName]=@FirstName, [LastName]=@LastName, [Address]=@Address, [HouseNumber]=@HouseNumber, [ZipCode]=@ZipCode, [City]=@City, [Phone_number]=@Phone_number, [Mail]=@Mail) WHERE Member_id='"+txtMember_Id.Text+"'";
 
             command.Parameters.AddWithValue("@FirstName", txtFirstName.Text);
             command.Parameters.AddWithValue("@LastName",txtLastName.Text);
@@ -35,11 +35,6 @@ namespace Library
             command.Parameters.AddWithValue("@Mail",txtMail.Text);
            
             command.ExecuteNonQuery();
-        }
-
-        private void UpdateMember_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

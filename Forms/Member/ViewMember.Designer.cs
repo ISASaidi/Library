@@ -31,7 +31,7 @@ namespace Library
         {
             this.dataGridViewMember = new System.Windows.Forms.DataGridView();
             this.lbFirstName = new System.Windows.Forms.Label();
-            this.txtSearchFirstName = new System.Windows.Forms.TextBox();
+            this.txtSearchMember_Id = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMember)).BeginInit();
             this.SuspendLayout();
@@ -42,6 +42,7 @@ namespace Library
             this.dataGridViewMember.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewMember.Location = new System.Drawing.Point(12, 12);
             this.dataGridViewMember.Name = "dataGridViewMember";
+            this.dataGridViewMember.ReadOnly = true;
             this.dataGridViewMember.RowTemplate.Height = 25;
             this.dataGridViewMember.Size = new System.Drawing.Size(776, 356);
             this.dataGridViewMember.TabIndex = 0;
@@ -49,23 +50,24 @@ namespace Library
             // lbFirstName
             // 
             this.lbFirstName.AutoSize = true;
-            this.lbFirstName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbFirstName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbFirstName.Location = new System.Drawing.Point(23, 402);
             this.lbFirstName.Name = "lbFirstName";
-            this.lbFirstName.Size = new System.Drawing.Size(69, 17);
+            this.lbFirstName.Size = new System.Drawing.Size(80, 15);
             this.lbFirstName.TabIndex = 1;
-            this.lbFirstName.Text = "Firstname";
+            this.lbFirstName.Text = "Member ID : ";
             // 
-            // txtSearchFirstName
+            // txtSearchMember_Id
             // 
-            this.txtSearchFirstName.Location = new System.Drawing.Point(127, 396);
-            this.txtSearchFirstName.Name = "txtSearchFirstName";
-            this.txtSearchFirstName.Size = new System.Drawing.Size(156, 23);
-            this.txtSearchFirstName.TabIndex = 2;
+            this.txtSearchMember_Id.Location = new System.Drawing.Point(127, 396);
+            this.txtSearchMember_Id.Name = "txtSearchMember_Id";
+            this.txtSearchMember_Id.Size = new System.Drawing.Size(156, 23);
+            this.txtSearchMember_Id.TabIndex = 2;
             // 
             // btnSearch
             // 
-            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSearch.Location = new System.Drawing.Point(321, 396);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
@@ -81,7 +83,7 @@ namespace Library
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.txtSearchFirstName);
+            this.Controls.Add(this.txtSearchMember_Id);
             this.Controls.Add(this.lbFirstName);
             this.Controls.Add(this.dataGridViewMember);
             this.Name = "ViewMember";
@@ -98,7 +100,7 @@ namespace Library
 
         private System.Windows.Forms.DataGridView dataGridViewMember;
         private System.Windows.Forms.Label lbFirstName;
-        private System.Windows.Forms.TextBox txtSearchFirstName;
+        private System.Windows.Forms.TextBox txtSearchMember_Id;
         private System.Windows.Forms.Button btnSearch;
     }
 }

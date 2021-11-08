@@ -51,7 +51,7 @@ namespace Library
             this.Close();
         }
 
-        private void txtUsername_TextChanged(object sender, EventArgs e)
+        private void txtUsername_TextChanged(object sender, EventArgs e)// ik krijg het niet weg
         {
 
         }

@@ -19,8 +19,8 @@ namespace Library.Entities
 
         public enum Status
         {
-            Free=0,
-            Borrowed=1
+            Free,
+            Borrowed
         }
 
         public Book()

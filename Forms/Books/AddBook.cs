@@ -11,13 +11,13 @@ using System.Data.SqlClient;
 
 namespace Library
 {
-    public partial class Add_Remove_Book : Form
+    public partial class AddBook : Form
     {
-        string conn = "@Data Source=(local);Initial Catalog=Library;Integrated Security=True";
+        string conn = "Data Source=(local);Initial Catalog=Library;Integrated Security=True";
 
       
 
-        public Add_Remove_Book()
+        public AddBook()
         {
             InitializeComponent();
         }
@@ -27,7 +27,7 @@ namespace Library
            
             using SqlConnection connection = new SqlConnection(conn);
 
-            using var command = connection.CreateCommand();
+            var command = connection.CreateCommand();
 
             command.CommandText = "insert into [TableBook] (Title, Edition, Author, Genre) Values (@Title, @Edition, @Author, @Genre); select scope_identity()";
             command.Parameters.AddWithValue("@Title", txtTitle.Text);
@@ -45,15 +45,10 @@ namespace Library
 
         }
 
-        private void btnRemove_Click(object sender, EventArgs e)
+        private void btnRemove_Click(object sender, EventArgs e)// ik krijg het niet weg 
         {
-            using SqlConnection connection = new SqlConnection(conn);
-
-            using var command = connection.CreateCommand();
-            command.CommandText = "DELETE FROM [TableBook] where Title= '"+txtTitle.Text+"'";// Je devrais le faire avec le ISBN. Je sais que ce n'est pas top, mais si je touche à quelque chose après c'est la misère pour qu'il ouvre mon formulaire sans erreur
-            using var reader = command.ExecuteReader(); // la connection avec le server ne se fait pas.
-            reader.Read();
-            MessageBox.Show("The book has been removed"); 
+            
         }
     }
 }
+

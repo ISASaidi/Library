@@ -1,7 +1,7 @@
 ﻿
 namespace Library
 {
-    partial class Add_Remove_Book
+    partial class AddBook
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace Library
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Add_Remove_Book));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddBook));
             this.lbTitle = new System.Windows.Forms.Label();
             this.lbEdition = new System.Windows.Forms.Label();
             this.lbAuthor = new System.Windows.Forms.Label();
@@ -40,47 +40,46 @@ namespace Library
             this.txtGenre = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnRemove = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lbTitle
             // 
             this.lbTitle.AutoSize = true;
-            this.lbTitle.Font = new System.Drawing.Font("Segoe UI Symbol", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbTitle.Location = new System.Drawing.Point(25, 24);
+            this.lbTitle.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbTitle.Location = new System.Drawing.Point(25, 32);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(46, 17);
+            this.lbTitle.Size = new System.Drawing.Size(43, 15);
             this.lbTitle.TabIndex = 0;
             this.lbTitle.Text = "Title :";
             // 
             // lbEdition
             // 
             this.lbEdition.AutoSize = true;
-            this.lbEdition.Font = new System.Drawing.Font("Segoe UI Symbol", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbEdition.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbEdition.Location = new System.Drawing.Point(25, 72);
             this.lbEdition.Name = "lbEdition";
-            this.lbEdition.Size = new System.Drawing.Size(69, 17);
+            this.lbEdition.Size = new System.Drawing.Size(63, 15);
             this.lbEdition.TabIndex = 1;
             this.lbEdition.Text = "Edition  :";
             // 
             // lbAuthor
             // 
             this.lbAuthor.AutoSize = true;
-            this.lbAuthor.Font = new System.Drawing.Font("Segoe UI Symbol", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbAuthor.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbAuthor.Location = new System.Drawing.Point(25, 119);
             this.lbAuthor.Name = "lbAuthor";
-            this.lbAuthor.Size = new System.Drawing.Size(62, 17);
+            this.lbAuthor.Size = new System.Drawing.Size(58, 15);
             this.lbAuthor.TabIndex = 2;
             this.lbAuthor.Text = "Author :";
             // 
             // lbGenre
             // 
             this.lbGenre.AutoSize = true;
-            this.lbGenre.Font = new System.Drawing.Font("Segoe UI Symbol", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbGenre.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbGenre.Location = new System.Drawing.Point(25, 157);
             this.lbGenre.Name = "lbGenre";
-            this.lbGenre.Size = new System.Drawing.Size(57, 17);
+            this.lbGenre.Size = new System.Drawing.Size(51, 15);
             this.lbGenre.TabIndex = 3;
             this.lbGenre.Text = "Genre :";
             // 
@@ -114,8 +113,9 @@ namespace Library
             // 
             // btnAdd
             // 
-            this.btnAdd.Font = new System.Drawing.Font("Segoe UI Symbol", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnAdd.Location = new System.Drawing.Point(119, 199);
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAdd.Location = new System.Drawing.Point(228, 200);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(72, 27);
             this.btnAdd.TabIndex = 8;
@@ -128,29 +128,17 @@ namespace Library
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(349, 24);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(111, 137);
+            this.pictureBox1.Size = new System.Drawing.Size(111, 203);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
-            // btnRemove
-            // 
-            this.btnRemove.Font = new System.Drawing.Font("Segoe UI Symbol", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnRemove.Location = new System.Drawing.Point(228, 199);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(72, 27);
-            this.btnRemove.TabIndex = 10;
-            this.btnRemove.Text = "Remove";
-            this.btnRemove.UseVisualStyleBackColor = true;
-            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
-            // 
-            // Add_Remove_Book
+            // AddBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(472, 280);
-            this.Controls.Add(this.btnRemove);
+            this.ClientSize = new System.Drawing.Size(472, 249);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.txtGenre);
@@ -163,9 +151,9 @@ namespace Library
             this.Controls.Add(this.lbTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
-            this.Name = "Add_Remove_Book";
+            this.Name = "AddBook";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Add or Remove Book";
+            this.Text = "Add Book";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -184,6 +172,5 @@ namespace Library
         private System.Windows.Forms.TextBox txtGenre;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnRemove;
     }
 }
