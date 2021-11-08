@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Threading;
 
 namespace Library
 {
@@ -23,6 +24,10 @@ namespace Library
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+
+            btnSave.Enabled = false;// Waar moet ik het plaatsen
+            Thread.Sleep(1000);
+            btnSave.Enabled = true;
             using SqlConnection connection = new SqlConnection(conn);
 
             using var command = connection.CreateCommand();

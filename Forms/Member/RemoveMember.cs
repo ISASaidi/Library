@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Threading;
 
 namespace Library
 {
@@ -20,6 +21,9 @@ namespace Library
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
+            btnRemove.Enabled = false;// Waar moet ik het plaatsen
+            Thread.Sleep(1000);
+            btnRemove.Enabled = true;
 
             using SqlConnection connection = new SqlConnection("Data Source=(local);Initial Catalog=Library;Integrated Security=True");
             using var command = connection.CreateCommand();

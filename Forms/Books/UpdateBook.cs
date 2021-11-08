@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-
+using System.Threading;
 
 namespace Library 
 {
@@ -14,7 +14,9 @@ namespace Library
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-
+            btnSave.Enabled = false;// Waar moet ik het plaatsen
+            Thread.Sleep(1000);
+            btnSave.Enabled = true;
             //Entities.Book bk = new Entities.Book();
 
             using SqlConnection connection = new SqlConnection("Data Source=MOHAMED-DESKTOP;Initial Catalog=Library;Integrated Security=True");

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Threading;
 
 namespace Library
 {
@@ -37,6 +38,10 @@ namespace Library
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            btnSearch.Enabled = false;// Waar moet ik het plaatsen
+            Thread.Sleep(1000);
+            btnSearch.Enabled = true;
+
             using SqlConnection connection = new SqlConnection(conn);
 
             var command = connection.CreateCommand();

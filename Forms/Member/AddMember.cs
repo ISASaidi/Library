@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Threading;
 
 namespace Library
 {
@@ -21,6 +22,10 @@ namespace Library
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+
+            btnAdd.Enabled = false;// Waar moet ik het plaatsen
+            Thread.Sleep(1000);
+            btnAdd.Enabled = true;
 
             using SqlConnection connection = new SqlConnection("Data Source=(local);Initial Catalog=Library;Integrated Security=True");
 

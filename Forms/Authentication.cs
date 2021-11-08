@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows.Forms;
-
+using System.Threading;
 
 namespace Library
 {
@@ -21,7 +21,10 @@ namespace Library
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-           
+            btnLogin.Enabled = false;// Waar moet ik het plaatsen
+            Thread.Sleep(1000);
+            btnLogin.Enabled = true;
+
             using SqlConnection connection = new SqlConnection("Data Source=(local);Initial Catalog=Library;Integrated Security=True");
             var command = connection.CreateCommand();
             command.CommandText = " select * from LoginTable where username ='"+txtUsername.Text+"'and password='"+txtPassword+"'";
