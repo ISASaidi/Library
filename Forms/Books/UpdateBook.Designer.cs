@@ -43,7 +43,7 @@ namespace Library
             this.label1 = new System.Windows.Forms.Label();
             this.txtIsbn = new System.Windows.Forms.TextBox();
             this.comboBoxStatus = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbStatus = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,7 +51,7 @@ namespace Library
             // 
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSave.Location = new System.Drawing.Point(239, 424);
+            this.btnSave.Location = new System.Drawing.Point(239, 440);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(72, 27);
             this.btnSave.TabIndex = 17;
@@ -158,22 +158,22 @@ namespace Library
             // 
             this.comboBoxStatus.FormattingEnabled = true;
             this.comboBoxStatus.Items.AddRange(new object[] {
-            "Borrowed",
-            "Free"});
-            this.comboBoxStatus.Location = new System.Drawing.Point(130, 370);
+            "Available",
+            "Borrowed"});
+            this.comboBoxStatus.Location = new System.Drawing.Point(130, 372);
             this.comboBoxStatus.Name = "comboBoxStatus";
             this.comboBoxStatus.Size = new System.Drawing.Size(121, 23);
-            this.comboBoxStatus.TabIndex = 24;
+            this.comboBoxStatus.TabIndex = 23;
             // 
-            // label2
+            // lbStatus
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(32, 376);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 15);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "Status :";
+            this.lbStatus.AutoSize = true;
+            this.lbStatus.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbStatus.Location = new System.Drawing.Point(32, 380);
+            this.lbStatus.Name = "lbStatus";
+            this.lbStatus.Size = new System.Drawing.Size(53, 15);
+            this.lbStatus.TabIndex = 24;
+            this.lbStatus.Text = "Status :";
             // 
             // UpdateBook
             // 
@@ -181,7 +181,7 @@ namespace Library
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(323, 479);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbStatus);
             this.Controls.Add(this.comboBoxStatus);
             this.Controls.Add(this.txtIsbn);
             this.Controls.Add(this.label1);
@@ -221,6 +221,6 @@ namespace Library
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtIsbn;
         private System.Windows.Forms.ComboBox comboBoxStatus;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbStatus;
     }
 }

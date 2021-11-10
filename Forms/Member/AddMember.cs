@@ -14,7 +14,7 @@ namespace Library
 {
     public partial class AddMember : Form
     {
-  
+
         public AddMember()
         {
             InitializeComponent();
@@ -24,27 +24,16 @@ namespace Library
         {
 
             btnAdd.Enabled = false;// Waar moet ik het plaatsen
-            Thread.Sleep(1000);
-            btnAdd.Enabled = true;
+            try
+            {
+                Member mbr = new Member(txtFirstname.Text, txtLastname.Text, txtAddress.Text, int.Parse(txtHouseNumber.Text), int.Parse(txtZipcode.Text), txtCity.Text, int.Parse(txtPhone_number.Text), txtMail.Text);
+                mbr.AddMember();
+            }
+            finally
+            {
 
-            using SqlConnection connection = new SqlConnection("Data Source=(local);Initial Catalog=Library;Integrated Security=True");
-
-            using var command = connection.CreateCommand();
-
-            command.CommandText = "insert into [TableMember] (FirstName, LastName, Address, HouseNumber, ZipCode, City, Phone_number, Mail ) Values (@FirstName, @LastName, @Address, @HouseNumber, @ZipCode, @City, @Phone_number, @Mail); select scope_identity()";
-            command.Parameters.AddWithValue("@FirstName", txtFirstname.Text );
-            command.Parameters.AddWithValue("@LastName", txtLastname.Text);
-            command.Parameters.AddWithValue("@Address", txtAddress.Text);
-            command.Parameters.AddWithValue("@HouseNumber", txtHouseNumber.Text);
-            command.Parameters.AddWithValue("@ZipCode", txtZipcode.Text);
-            command.Parameters.AddWithValue("@City",txtCity.Text);
-            command.Parameters.AddWithValue("@Phone_number", txtPhone_number.Text);
-            command.Parameters.AddWithValue("@Mail", txtMail.Text);
-            
-            using var reader = command.ExecuteReader();// la connection avec le server ne se fait pas.
-            reader.Read();
-            
-            MessageBox.Show("The Member has been added");
+                btnAdd.Enabled = true;
+            }
 
         }
     }

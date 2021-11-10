@@ -21,16 +21,17 @@ namespace Library
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            btnRemove.Enabled = false;// Waar moet ik het plaatsen
-            Thread.Sleep(1000);
-            btnRemove.Enabled = true;
+            btnRemove.Enabled = false;
+            try
+            {
+                Member mbr = new Member(int.Parse(txtMemberId.Text));
+                mbr.RemoveMember();
+            }
+            finally
+            {
+                btnRemove.Enabled = true;
+            }
 
-            using SqlConnection connection = new SqlConnection("Data Source=(local);Initial Catalog=Library;Integrated Security=True");
-            using var command = connection.CreateCommand();
-            command.CommandText = "DELETE FROM [TableMember] where Member_Id= '" + txtMemberId.Text + "'";
-            using var reader = command.ExecuteReader(); // la connection avec le server ne se fait pas.
-            reader.Read();
-            MessageBox.Show("The member has been removed");
         }
     }
 }

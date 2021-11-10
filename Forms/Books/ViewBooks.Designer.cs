@@ -33,6 +33,7 @@ namespace Library
             this.lbSearch = new System.Windows.Forms.Label();
             this.txtSearchIsbn = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.btnGetAll = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBook)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,12 +79,25 @@ namespace Library
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // btnGetAll
+            // 
+            this.btnGetAll.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnGetAll.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnGetAll.Location = new System.Drawing.Point(379, 394);
+            this.btnGetAll.Name = "btnGetAll";
+            this.btnGetAll.Size = new System.Drawing.Size(75, 23);
+            this.btnGetAll.TabIndex = 5;
+            this.btnGetAll.Text = "GET ALL";
+            this.btnGetAll.UseVisualStyleBackColor = true;
+            this.btnGetAll.Click += new System.EventHandler(this.btnGetAll_Click);
+            // 
             // ViewBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnGetAll);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearchIsbn);
             this.Controls.Add(this.lbSearch);
@@ -106,5 +120,6 @@ namespace Library
         private System.Windows.Forms.Label lbSearch;
         private System.Windows.Forms.TextBox txtSearchIsbn;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnGetAll;
     }
 }

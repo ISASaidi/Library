@@ -21,30 +21,34 @@ namespace Library
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            btnLogin.Enabled = false;// Waar moet ik het plaatsen
-            Thread.Sleep(1000);
-            btnLogin.Enabled = true;
-
-            using SqlConnection connection = new SqlConnection("Data Source=(local);Initial Catalog=Library;Integrated Security=True");
-            var command = connection.CreateCommand();
-            command.CommandText = " select * from LoginTable where username ='"+txtUsername.Text+"'and password='"+txtPassword+"'";
-
-            SqlDataAdapter da = new SqlDataAdapter(command); 
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-
-            //Door de Dataset door te geven via een DataAdapter, vul ik de records van mijn tafel met de waarde van mijn SelectCommand.
-
-            if (ds.Tables[0].Rows.Count != 0)// De voorwaarde heb ik letterlijk van internet overgenomen, maar werkt niet. Ik zie niet welke voorwaarde ik moet zetten.
+            btnLogin.Enabled = false;
+            try
             {
-                this.Hide();
-                MainForm mf = new MainForm();
-                mf.Show();
+                using SqlConnection connection = new SqlConnection("Data Source=(local);Initial Catalog=Library;Integrated Security=True");
+                connection.Open();
+                var command = connection.CreateCommand();
+                command.CommandText = " select 1 from LoginTable where username =@Username and password=@Password";
+                command.Parameters.AddWithValue("@Username", txtUsername.Text);
+                command.Parameters.AddWithValue("@Password", txtPassword.Text);
+                using var reader = command.ExecuteReader();
+                reader.Read();
+
+                if (reader.HasRows)
+                {
+                    this.Hide();
+                    MainForm mf = new MainForm();
+                    mf.Show();
+
+                }
+                else
+                {
+                    MessageBox.Show("You have put a wrong username of password. Please retry", "Error", MessageBoxButtons.OK);
+                }
 
             }
-            else
+            finally
             {
-                MessageBox.Show("You have put a wrong username of password. Please retry", "Error",MessageBoxButtons.OK);
+                btnLogin.Enabled = true;
             }
 
         }

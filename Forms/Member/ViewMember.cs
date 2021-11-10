@@ -26,7 +26,7 @@ namespace Library
         {
             using SqlConnection connection = new SqlConnection(conn);
 
-           using  var command = connection.CreateCommand();
+            using var command = connection.CreateCommand();
             command.CommandText = "select * from [TableMember]";
 
             SqlDataAdapter da = new SqlDataAdapter(command);
@@ -39,15 +39,17 @@ namespace Library
         private void btnSearch_Click(object sender, EventArgs e)
         {
             btnSearch.Enabled = false;// Waar moet ik het plaatsen
-            Thread.Sleep(1000);
-            btnSearch.Enabled = true;
+            try
+            {
+                Member mbr = new Member(int.Parse(txtSearchMember_Id.Text));
+                mbr.SearchMember();
+            }
+            finally
+            {
 
-            using SqlConnection connection = new SqlConnection(conn);
+                btnSearch.Enabled = true;
+            }
 
-            var command = connection.CreateCommand();
-            command.CommandText = "select from [TableMember] where Member_Id='" + txtSearchMember_Id.Text + "'";
-            using var reader = command.ExecuteReader();
-            reader.Read();
         }
     }
 }

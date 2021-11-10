@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
 
-
-namespace Library.Entities
+namespace Library
 {
-    class Book
+
+    class Book : BookRepository
     {
 
         public int? Isbn { get; set; }
@@ -15,17 +17,43 @@ namespace Library.Entities
         public string Edition { get; set; }
         public string Author { get; set; }
         public string Genre { get; set; }
-        public Status StatusBook { get; set; }
+        public string StatusBook { get; set; }
+
 
         public enum Status
         {
-            Free,
+            Available,
             Borrowed
         }
 
         public Book()
         {
-          //  Title = txtTitle.Text; => ik wil alle waarden van de formulier zo doorgeven aan mijn eigenschappen, maar dat lukt niet.
+
         }
+
+        public Book(int isbn)
+        {
+            Isbn = isbn;
+        }
+
+        public Book(string title, string edition, string author, string genre)
+        {
+            Title = title;
+            Edition = edition;
+            Author = author;
+            Genre = genre;
+            StatusBook = Status.Available.ToString();
+
+        }
+
+
+
+     
+     
+
+       
+
+
+
     }
 }

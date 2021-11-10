@@ -14,6 +14,7 @@ namespace Library
 {
     public partial class ViewBooks : Form
     {
+        BookRepository br = new BookRepository();
 
         string conn = "Data Source = (local); Initial Catalog = Library; Integrated Security = True";
         public ViewBooks()
@@ -21,13 +22,10 @@ namespace Library
             InitializeComponent();
         }
 
-       
-        private void ViewBooks_Load(object sender, EventArgs e)
-        {
-            using SqlConnection connection = new SqlConnection(conn);
 
-            var command = connection.CreateCommand();
-            command.CommandText = "select * from [TableBook]";
+
+        private void setDataGridView(SqlCommand command)
+        {
 
             SqlDataAdapter da = new SqlDataAdapter(command);
             DataTable dt = new DataTable();
@@ -36,18 +34,42 @@ namespace Library
             dataGridViewBook.DataSource = dt;
         }
 
+        private void ViewBooks_Load(object sender, EventArgs e)
+        {
+            
+            setDataGridView(br.GetCommandForAllBooks());
+        }
+
+
+       
+
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            btnSearch.Enabled = false;// Waar moet ik het plaatsen
-            Thread.Sleep(1000);
-            btnSearch.Enabled = true;
+            btnSearch.Enabled = false;
 
-            using SqlConnection connection = new SqlConnection(conn);
+            try
+            {
 
-            var command = connection.CreateCommand();
-            command.CommandText = "select from [TableBook] where Isbn='" + txtSearchIsbn.Text + "'";
-            using var reader = command.ExecuteReader();
-            reader.Read();
+             
+                setDataGridView(br.GetCommandForBook(int.Parse(txtSearchIsbn.Text)));
+                
+            }
+
+            finally
+            {
+
+                btnSearch.Enabled = true;
+            }
+
+           
+        }
+
+        private void btnGetAll_Click(object sender, EventArgs e)// effacer ce qui est dans le txt
+        {
+            
+
+            setDataGridView(br.GetCommandForAllBooks());
+
         }
     }
 }

@@ -21,25 +21,18 @@ namespace Library
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            btnUpdate.Enabled = false;// Waar moet ik het plaatsen
-            Thread.Sleep(1000);
-            btnUpdate.Enabled = true;
+            btnUpdate.Enabled = false;
+            try
+            {
+                Member mbr = new Member(txtFirstName.Text, txtLastName.Text, txtAddress.Text, int.Parse(txtHouseNumber.Text), int.Parse(txtZipCode.Text), txtCity.Text, int.Parse(txtPhoneNumber.Text), txtMail.Text);
+                mbr.Member_id = int.Parse(txtMember_Id.Text);
+                mbr.UpdateMember();
+            }
+            finally
+            {
+                btnUpdate.Enabled = true;
+            }
 
-            using SqlConnection connection = new SqlConnection("Data Source=(local);Initial Catalog=Library;Integrated Security=True");
-
-            var command = connection.CreateCommand();
-            command.CommandText = "UPDATE [TableMember] SET [FirstName]=@FirstName, [LastName]=@LastName, [Address]=@Address, [HouseNumber]=@HouseNumber, [ZipCode]=@ZipCode, [City]=@City, [Phone_number]=@Phone_number, [Mail]=@Mail) WHERE Member_id='"+txtMember_Id.Text+"'";
-
-            command.Parameters.AddWithValue("@FirstName", txtFirstName.Text);
-            command.Parameters.AddWithValue("@LastName",txtLastName.Text);
-            command.Parameters.AddWithValue("@Address",txtAddress.Text);
-            command.Parameters.AddWithValue("@HouseNumber",txtHouseNumber.Text);
-            command.Parameters.AddWithValue("@ZipCode",txtZipCode.Text);
-            command.Parameters.AddWithValue("@City",txtCity.Text);
-            command.Parameters.AddWithValue("@Phone_number",txtPhoneNumber.Text);
-            command.Parameters.AddWithValue("@Mail",txtMail.Text);
-           
-            command.ExecuteNonQuery();
         }
     }
 }

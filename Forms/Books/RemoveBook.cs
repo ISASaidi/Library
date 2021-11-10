@@ -14,6 +14,7 @@ namespace Library
 {
     public partial class RemoveBook : Form
     {
+        BookRepository br = new BookRepository();
         public RemoveBook()
         {
             InitializeComponent();
@@ -21,17 +22,18 @@ namespace Library
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            btnRemove.Enabled = false;// Waar moet ik het plaatsen
-            Thread.Sleep(1000);
-            btnRemove.Enabled = true;
+            btnRemove.Enabled = false;
+            try
+            {
+                
+                br.RemoveBook(int.Parse(txtIsbn.Text));
+            }
+            finally
+            {
+                btnRemove.Enabled = true;
 
-            using SqlConnection connection = new SqlConnection("Data Source=(local);Initial Catalog=Library;Integrated Security=True");
+            }
 
-            using var command = connection.CreateCommand();
-            command.CommandText = "DELETE FROM [TableBook] where Isbn= '" + txtIsbn.Text + "'";
-            using var reader = command.ExecuteReader(); // la connection avec le server ne se fait pas.
-            reader.Read();
-            MessageBox.Show("The book has been removed");
         }
     }
 }

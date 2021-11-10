@@ -3,10 +3,12 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Threading;
 
-namespace Library 
+namespace Library
 {
     public partial class UpdateBook : Form
     {
+
+        BookRepository br = new BookRepository();
         public UpdateBook()
         {
             InitializeComponent();
@@ -14,30 +16,21 @@ namespace Library
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            btnSave.Enabled = false;// Waar moet ik het plaatsen
-            Thread.Sleep(1000);
-            btnSave.Enabled = true;
-            //Entities.Book bk = new Entities.Book();
-
-            using SqlConnection connection = new SqlConnection("Data Source=MOHAMED-DESKTOP;Initial Catalog=Library;Integrated Security=True");
-
-            var command = connection.CreateCommand();
-            command.CommandText = "UPDATE [TableBook] SET ([Title]=@Title, [Edition]=@Edition, [Author]=@Author, [Genre]=@Genre, [Status]=@Status) WHERE [Isbn]= '"+txtIsbn.Text+"'";
-
-            command.Parameters.AddWithValue("@Title", txtTitle.Text); //bk.Title
-            command.Parameters.AddWithValue("@Edition", txtEdition.Text); // bk.Edition
-            command.Parameters.AddWithValue("@Author", txtAuthor.Text); //bk.Author
-            command.Parameters.AddWithValue("@Genre", txtGenre.Text); //bk.Genre
-
-            if (comboBoxStatus.SelectedIndex == 0)
+            btnSave.Enabled = false;
+            try
             {
-                command.Parameters.AddWithValue("@Status", "Borrowed");// Entities.Book.Status.Borrowed.ToString()
+
+                Book bk = new Book(txtTitle.Text, txtEdition.Text, txtAuthor.Text, txtGenre.Text);
+                
+                br.UpdateBook(bk, comboBoxStatus.Text, int.Parse(txtIsbn.Text));
             }
-            else
+            finally
             {
-                command.Parameters.AddWithValue("@Status", "Free");//Entities.Book.Status.Free.ToString()
+
+                btnSave.Enabled = true;
             }
-                      command.ExecuteNonQuery();
+
+
         }
 
     }

@@ -8,37 +8,30 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Threading;
 
 namespace Library
 {
-    public partial class AddBook : Form
+    public partial class ReturnBook : Form
     {
-
-        BookRepository repository = new BookRepository();
-
-        public AddBook()
+        public ReturnBook()
         {
             InitializeComponent();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            btnAdd.Enabled = false;
+            btnReturn.Enabled = false;
 
             try
             {
-                Book bk = new Book(txtTitle.Text, txtEdition.Text, txtAuthor.Text, txtGenre.Text);
-                
-                repository.AddBook(bk);
+                Borrow brw = new Borrow(int.Parse(txtIsbn.Text));
+                brw.ReturnBook();
             }
-
             finally
             {
-                btnAdd.Enabled = true;
+                btnReturn.Enabled = true;
             }
 
         }
     }
 }
-
