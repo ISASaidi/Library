@@ -26,20 +26,51 @@ namespace Library
         {
             btnAdd.Enabled = false;
 
-            try
-            {
-                Book bk = new Book(txtTitle.Text, txtEdition.Text, txtAuthor.Text, txtGenre.Text);
-                
-                bookRepository.AddBook(bk);
-                MessageBox.Show("The book has been added");
-            }
+            
+            bool loop = true;
 
-            finally
+            do
             {
-                btnAdd.Enabled = true;
-            }
+
+                if ((string.IsNullOrEmpty(txtTitle.Text) || string.IsNullOrEmpty(txtEdition.Text) || string.IsNullOrEmpty(txtAuthor.Text) || string.IsNullOrEmpty(txtGenre.Text)))
+                {
+
+                    string message = "Fill in all the boxes";
+                    string title = "Error";
+                    MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    this.Close();
+
+                    AddBook book = new AddBook();
+                    book.Show(); break;
+                }
+                else
+                {
+                    loop = false;
+
+                    try
+                    {
+                        Book bk = new Book(txtTitle.Text, txtEdition.Text, txtAuthor.Text, txtGenre.Text);
+
+                        bookRepository.AddBook(bk);
+                        MessageBox.Show("The book has been added");
+                        this.Close();
+                    }
+
+                    finally
+                    {
+                        btnAdd.Enabled = true;
+                    }
+                }
+
+
+
+            } while (loop);
+
 
         }
+
     }
 }
+
 
