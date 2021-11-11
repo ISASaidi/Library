@@ -44,6 +44,8 @@ namespace Library
                 Borrow book = new Borrow(isbn, int.Parse(txtMemberId.Text), dateTimePickerPurchaseDate.Value, dateTimePickerReturnDate.Value);
                 borrowRepository.AddBorrowedBook(book);
 
+                //idealiter moet wat volg op lijn 49, 50 en 51 in de Repository verwerkt worden, maar het is mij niet gelukt.
+
                 SqlConnection connection = new SqlConnection("Data Source=(local);Initial Catalog=Library;Integrated Security=True");
                 using var command = connection.CreateCommand();
                 command.CommandText = " Select * from [TableBorrows]";
