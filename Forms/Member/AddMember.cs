@@ -26,20 +26,63 @@ namespace Library
         {
 
             btnAdd.Enabled = false;
-            try
+
+            bool loop = true;
+
+            do
             {
-                Member member = new Member(txtFirstname.Text, txtLastname.Text, txtAddress.Text, int.Parse(txtHouseNumber.Text), int.Parse(txtZipcode.Text), txtCity.Text, int.Parse(txtPhone_number.Text), txtMail.Text);
-                memberRepository.AddMember(member);
+                if (string.IsNullOrEmpty(txtFirstname.Text) || string.IsNullOrEmpty(txtLastname.Text) || string.IsNullOrEmpty(txtAddress.Text) || string.IsNullOrEmpty(txtHouseNumber.Text)
+                    || string.IsNullOrEmpty(txtZipcode.Text) || string.IsNullOrEmpty(txtCity.Text) || string.IsNullOrEmpty(txtPhone_number.Text) || string.IsNullOrEmpty(txtMail.Text))
+                {
 
-                
-                MessageBox.Show($"The Member with the id {member.Member_id} has been added");
-            }
-            finally
-            {
+                    string message = "Fill in all the boxes";
+                    string title = "Error";
+                    MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                btnAdd.Enabled = true;
-            }
+                    this.Close();
 
+                    AddMember member = new AddMember();
+                    member.Show(); break;
+                }
+                else
+                {
+
+
+                    try
+                    {
+
+
+                        if (Int32.TryParse(txtZipcode.Text, out int zipCode) || Int32.TryParse(txtPhone_number.Text, out int phoneNumber))
+                        {
+                            loop = false;
+                            Member member = new Member(txtFirstname.Text, txtLastname.Text, txtAddress.Text, txtHouseNumber.Text, int.Parse(txtZipcode.Text), txtCity.Text, int.Parse(txtPhone_number.Text), txtMail.Text);
+                            memberRepository.AddMember(member);
+
+                            MessageBox.Show("The Member has been added");
+                            this.Close();
+                        }
+                        else
+                        {
+                            string message = "Fill only numbers for the ZipCode and the Phonenumber";
+                            string title = "Error";
+                            MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                            this.Close();
+
+                            AddMember newmember = new AddMember();
+                            newmember.Show(); break;
+                        }
+
+                    }
+                    finally
+                    {
+
+                        btnAdd.Enabled = true;
+                    }
+
+                }
+
+            } while (loop);
         }
     }
 }

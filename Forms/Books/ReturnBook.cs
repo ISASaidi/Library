@@ -23,22 +23,47 @@ namespace Library
         private void button1_Click(object sender, EventArgs e)
         {
             btnReturn.Enabled = false;
+            bool loop = true;
 
-            try
+            do
             {
 
-                int isbn = int.Parse(txtIsbn.Text);
+                if (string.IsNullOrEmpty(txtIsbn.Text))
+                {
 
-                borrowRepository.DeleteBorrowedBook(isbn);
-                borrowRepository.UpdateAvailableBook(isbn);
-              
-                MessageBox.Show($"The book with ISBN {isbn} has been returned and updated");
-            }
-            finally
-            {
-                btnReturn.Enabled = true;
-            }
+                    string message = "Fill the ISBN in ";
+                    string title = "Error";
+                    MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    this.Close();
+
+                    ReturnBook book = new ReturnBook();
+                    book.Show(); break;
+                }
+                else
+                {
+                    loop = false;
+
+                    try
+                    {
+
+                        int isbn = int.Parse(txtIsbn.Text);
+
+                        borrowRepository.DeleteBorrowedBook(isbn);
+                        borrowRepository.UpdateAvailableBook(isbn);
+
+                        MessageBox.Show($"The book with ISBN {isbn} has been returned and updated");
+                        this.Close();
+                    }
+                    finally
+                    {
+                        btnReturn.Enabled = true;
+                    }
+
+                }
+            
+            } while (loop);
 
         }
-    }
+}
 }

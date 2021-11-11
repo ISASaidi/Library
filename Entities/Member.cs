@@ -17,7 +17,7 @@ namespace Library
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Address { get; set; }
-        public int HouseNumber { get; set; }
+        public string HouseNumber { get; set; }
         public int ZipCode { get; set; }
         public string City { get; set; }
         public int Phone_Number { get; set; }
@@ -28,7 +28,7 @@ namespace Library
         {
             Member_id = member_id;
         }
-        public Member(string firstname, string lastname, string address, int houseNumber, int zipCode, string city, int phoneNumber, string mail)
+        public Member(string firstname, string lastname, string address, string houseNumber, int zipCode, string city, int phoneNumber, string mail)
         {
             FirstName = firstname;
             LastName = lastname;

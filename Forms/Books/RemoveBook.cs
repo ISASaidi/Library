@@ -23,17 +23,45 @@ namespace Library
         private void btnRemove_Click(object sender, EventArgs e)
         {
             btnRemove.Enabled = false;
-            try
-            {
-                
-                br.RemoveBook(int.Parse(txtIsbn.Text));
-                MessageBox.Show("The book has been removed");
-            }
-            finally
-            {
-                btnRemove.Enabled = true;
+            bool loop = true;
 
-            }
+
+            do
+            {
+                if (string.IsNullOrEmpty(txtIsbn.Text))
+                {
+
+                    string message = "Fill the ISBN in ";
+                    string title = "Error";
+                    MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    this.Close();
+
+                    RemoveBook book = new RemoveBook();
+                    book.Show(); break;
+                }
+
+                else
+                {
+
+                    loop = false;
+
+                    try
+                    {
+
+                        br.RemoveBook(int.Parse(txtIsbn.Text));
+                        MessageBox.Show("The book has been removed");
+                        this.Close();
+                    }
+                    finally
+                    {
+                        btnRemove.Enabled = true;
+
+                    }
+
+                }
+
+            } while (loop);
 
         }
     }

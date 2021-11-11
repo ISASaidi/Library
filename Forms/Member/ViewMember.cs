@@ -15,7 +15,7 @@ namespace Library
     public partial class ViewMember : Form
     {
 
-     
+
         MemberRepository memberRepository = new MemberRepository();
 
         public ViewMember()
@@ -39,23 +39,46 @@ namespace Library
         {
 
             SetDataGridView(memberRepository.GetCommandForAllMembers());
-           
+
         }
-      
+
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
             btnSearch.Enabled = false;
-            try
-            {
-                SetDataGridView(memberRepository.GetCommandFindMember(int.Parse(txtSearchMember_Id.Text)));
-               
-            }
-            finally
+
+            bool loop = true;
+
+            do
             {
 
-                btnSearch.Enabled = true;
-            }
+                if (string.IsNullOrEmpty(txtSearchMember_Id.Text))
+                {
+                    string message = "Fill the Member ID in ";
+                    string title = "Error";
+                    MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    this.Close();
+
+                    ViewMember member = new ViewMember();
+                    member.Show(); break;
+                }
+                else
+                {
+                    loop = false;
+
+                    try
+                    {
+                        SetDataGridView(memberRepository.GetCommandFindMember(int.Parse(txtSearchMember_Id.Text)));
+
+                    }
+                    finally
+                    {
+
+                        btnSearch.Enabled = true;
+                    }
+                }
+            } while (loop);
 
         }
 

@@ -36,41 +36,66 @@ namespace Library
         {
 
             btnSave.Enabled = false;
-            try
+
+            bool loop = true;
+
+            do
             {
+                if (string.IsNullOrEmpty(txtMemberId.Text) || string.IsNullOrEmpty(txtIsbn.Text) || string.IsNullOrEmpty(dateTimePickerPurchaseDate.Text) || string.IsNullOrEmpty(dateTimePickerReturnDate.Text))
 
-                int isbn = int.Parse(txtIsbn.Text);
+                {
 
-                Borrow book = new Borrow(isbn, int.Parse(txtMemberId.Text), dateTimePickerPurchaseDate.Value, dateTimePickerReturnDate.Value);
-                borrowRepository.AddBorrowedBook(book);
+                    string message = "Fill in all the boxes";
+                    string title = "Error";
+                    MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                //idealiter moet wat volg op lijn 49, 50 en 51 in de Repository verwerkt worden, maar het is mij niet gelukt.
+                    this.Close();
 
-                SqlConnection connection = new SqlConnection("Data Source=(local);Initial Catalog=Library;Integrated Security=True");
-                using var command = connection.CreateCommand();
-                command.CommandText = " Select * from [TableBorrows]";
+                    BorrowBook book = new BorrowBook();
+                    book.Show(); break;
 
-                setDataGridView(command);
+                }
+                else
+                {
+                    try
+                    {
+                        loop = false;
 
-                borrowRepository.UpdateBorrowedBook(isbn);
-               
-                MessageBox.Show("The book has been borrowed and updated");
+                        int isbn = int.Parse(txtIsbn.Text);
+
+                        Borrow book = new Borrow(isbn, int.Parse(txtMemberId.Text), dateTimePickerPurchaseDate.Value, dateTimePickerReturnDate.Value);
+                        borrowRepository.AddBorrowedBook(book);
+
+                        //idealiter moet wat volg op lijn 49, 50 en 51 in de Repository verwerkt worden, maar het is mij niet gelukt.
+
+                        SqlConnection connection = new SqlConnection("Data Source=(local);Initial Catalog=Library;Integrated Security=True");
+                        using var command = connection.CreateCommand();
+                        command.CommandText = " Select * from [TableBorrows]";
+
+                        setDataGridView(command);
+
+                        borrowRepository.UpdateBorrowedBook(isbn);
+
+                        MessageBox.Show("The book has been borrowed and updated");
 
 
-            }
-            finally
-            {
+                    }
+                    finally
+                    {
 
-                btnSave.Enabled = true;
-            }
+                        btnSave.Enabled = true;
+                    }
+                }
+
+            } while (loop);
 
         }
 
-      
+
 
         private void Borrowing_Returning_Load(object sender, EventArgs e)
         {
-            
+
 
             setDataGridView(borrowRepository.GetAllBorrowedBook());
 

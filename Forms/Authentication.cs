@@ -22,6 +22,9 @@ namespace Library
         private void btnLogin_Click(object sender, EventArgs e)
         {
             btnLogin.Enabled = false;
+
+
+
             try
             {
                 using SqlConnection connection = new SqlConnection("Data Source=(local);Initial Catalog=Library;Integrated Security=True");
@@ -50,6 +53,7 @@ namespace Library
             {
                 btnLogin.Enabled = true;
             }
+
 
         }
 

@@ -14,7 +14,7 @@ namespace Library
 {
     public partial class ViewBooks : Form
     {
-        BookRepository br = new BookRepository();
+        BookRepository bookRepository = new BookRepository();
 
         public ViewBooks()
         {
@@ -35,39 +35,59 @@ namespace Library
 
         private void ViewBooks_Load(object sender, EventArgs e)
         {
-            
-            setDataGridView(br.GetCommandForAllBooks());
+
+            setDataGridView(bookRepository.GetCommandForAllBooks());
         }
 
 
-       
+
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
             btnSearch.Enabled = false;
+            bool loop = true;
 
-            try
+            do
             {
+                if (string.IsNullOrEmpty(txtSearchIsbn.Text))
+                {
 
-             
-                setDataGridView(br.GetCommandForBook(int.Parse(txtSearchIsbn.Text)));
-                
-            }
+                    string message = "Fill the ISBN in ";
+                    string title = "Error";
+                    MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-            finally
-            {
+                    this.Close();
 
-                btnSearch.Enabled = true;
-            }
+                    ViewBooks book = new ViewBooks();
+                    book.Show(); break;
+                }
+                else
+                {
+                    loop = false;
 
-           
+                    try
+                    {
+
+
+                        setDataGridView(bookRepository.GetCommandForBook(int.Parse(txtSearchIsbn.Text)));
+
+                    }
+
+                    finally
+                    {
+
+                        btnSearch.Enabled = true;
+                    }
+
+                }
+            } while (loop);
         }
 
-        private void btnGetAll_Click(object sender, EventArgs e)// effacer ce qui est dans le txt
+        private void btnGetAll_Click(object sender, EventArgs e)
         {
-            
 
-            setDataGridView(br.GetCommandForAllBooks());
+
+            setDataGridView(bookRepository.GetCommandForAllBooks());
 
         }
     }

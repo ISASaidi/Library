@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Threading;
+using System.Text.RegularExpressions;
 
 namespace Library
 {
@@ -26,7 +27,7 @@ namespace Library
         {
             btnAdd.Enabled = false;
 
-            
+
             bool loop = true;
 
             do
@@ -50,11 +51,13 @@ namespace Library
 
                     try
                     {
+
                         Book bk = new Book(txtTitle.Text, txtEdition.Text, txtAuthor.Text, txtGenre.Text);
 
                         bookRepository.AddBook(bk);
                         MessageBox.Show("The book has been added");
                         this.Close();
+                       
                     }
 
                     finally
@@ -63,11 +66,7 @@ namespace Library
                     }
                 }
 
-
-
             } while (loop);
-
-
         }
 
     }

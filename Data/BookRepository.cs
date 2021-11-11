@@ -41,7 +41,10 @@ namespace Library
 
             using var command = _connection.CreateCommand();
             command.CommandText = "DELETE FROM [TableBook] where Isbn= @Isbn";
+            command.CommandText = "Delete FROM [TableBorrows] where Isbn=@Isbn";
             command.Parameters.AddWithValue("@Isbn", Isbn);
+
+
             command.ExecuteNonQuery();
            
         }
