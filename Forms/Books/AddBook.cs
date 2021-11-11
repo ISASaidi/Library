@@ -15,7 +15,7 @@ namespace Library
     public partial class AddBook : Form
     {
 
-        BookRepository repository = new BookRepository();
+        BookRepository bookRepository = new BookRepository();
 
         public AddBook()
         {
@@ -30,7 +30,8 @@ namespace Library
             {
                 Book bk = new Book(txtTitle.Text, txtEdition.Text, txtAuthor.Text, txtGenre.Text);
                 
-                repository.AddBook(bk);
+                bookRepository.AddBook(bk);
+                MessageBox.Show("The book has been added");
             }
 
             finally

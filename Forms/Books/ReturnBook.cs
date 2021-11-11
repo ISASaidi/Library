@@ -13,6 +13,8 @@ namespace Library
 {
     public partial class ReturnBook : Form
     {
+
+        BorrowRepository borrowRepository = new BorrowRepository();
         public ReturnBook()
         {
             InitializeComponent();
@@ -24,8 +26,13 @@ namespace Library
 
             try
             {
-                Borrow brw = new Borrow(int.Parse(txtIsbn.Text));
-                brw.ReturnBook();
+
+                int isbn = int.Parse(txtIsbn.Text);
+
+                borrowRepository.DeleteBorrowedBook(isbn);
+                borrowRepository.UpdateAvailableBook(isbn);
+              
+                MessageBox.Show($"The book with ISBN {isbn} has been returned and updated");
             }
             finally
             {

@@ -14,6 +14,7 @@ namespace Library
 {
     public partial class RemoveMember : Form
     {
+        MemberRepository memberRepository = new MemberRepository();
         public RemoveMember()
         {
             InitializeComponent();
@@ -24,8 +25,11 @@ namespace Library
             btnRemove.Enabled = false;
             try
             {
-                Member mbr = new Member(int.Parse(txtMemberId.Text));
-                mbr.RemoveMember();
+               
+                int member_id = int.Parse(txtMemberId.Text);
+                memberRepository.RemoveMember(member_id);
+
+                MessageBox.Show($"The member with the ID {member_id} has been removed");
             }
             finally
             {

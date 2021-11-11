@@ -15,10 +15,21 @@ namespace Library
     public partial class BorrowBook : Form
     {
 
+        BorrowRepository borrowRepository = new BorrowRepository();
 
         public BorrowBook()
         {
             InitializeComponent();
+        }
+
+        private void setDataGridView(SqlCommand command)
+        {
+
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            dataGridViewBorrows.DataSource = dt;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -28,10 +39,24 @@ namespace Library
             try
             {
 
-                Borrow brw = new Borrow(int.Parse(txtIsbn.Text), int.Parse(txtMemberId.Text), dateTimePickerPurchaseDate.Value, dateTimePickerReturnDate.Value);
-                brw.BorrowBook();
+                int isbn = int.Parse(txtIsbn.Text);
+
+                Borrow book = new Borrow(isbn, int.Parse(txtMemberId.Text), dateTimePickerPurchaseDate.Value, dateTimePickerReturnDate.Value);
+                borrowRepository.AddBorrowedBook(book);
+
+                SqlConnection connection = new SqlConnection("Data Source=(local);Initial Catalog=Library;Integrated Security=True");
+                using var command = connection.CreateCommand();
+                command.CommandText = " Select * from [TableBorrows]";
+
+                setDataGridView(command);
+
+                borrowRepository.UpdateBorrowedBook(isbn);
+               
+                MessageBox.Show("The book has been borrowed and updated");
+
+
             }
-            catch
+            finally
             {
 
                 btnSave.Enabled = true;
@@ -39,18 +64,13 @@ namespace Library
 
         }
 
+      
+
         private void Borrowing_Returning_Load(object sender, EventArgs e)
         {
+            
 
-            using SqlConnection connection = new SqlConnection("Data Source=(local);Initial Catalog=Library;Integrated Security=True");
-            connection.Open();
-            using var command = connection.CreateCommand();
-
-            command.CommandText = " select * from [TableBorrows]";
-            SqlDataAdapter da = new SqlDataAdapter(command);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            dataGridViewBorrows.DataSource = dt;
+            setDataGridView(borrowRepository.GetAllBorrowedBook());
 
         }
     }

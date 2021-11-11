@@ -33,6 +33,7 @@ namespace Library
             this.lbFirstName = new System.Windows.Forms.Label();
             this.txtSearchMember_Id = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.btnGetAll = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMember)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,12 +77,25 @@ namespace Library
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // btnGetAll
+            // 
+            this.btnGetAll.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnGetAll.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnGetAll.Location = new System.Drawing.Point(421, 394);
+            this.btnGetAll.Name = "btnGetAll";
+            this.btnGetAll.Size = new System.Drawing.Size(75, 23);
+            this.btnGetAll.TabIndex = 4;
+            this.btnGetAll.Text = "GET ALL";
+            this.btnGetAll.UseVisualStyleBackColor = true;
+            this.btnGetAll.Click += new System.EventHandler(this.btnGetAll_Click);
+            // 
             // ViewMember
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnGetAll);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearchMember_Id);
             this.Controls.Add(this.lbFirstName);
@@ -102,5 +116,6 @@ namespace Library
         private System.Windows.Forms.Label lbFirstName;
         private System.Windows.Forms.TextBox txtSearchMember_Id;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnGetAll;
     }
 }

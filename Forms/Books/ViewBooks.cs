@@ -16,7 +16,6 @@ namespace Library
     {
         BookRepository br = new BookRepository();
 
-        string conn = "Data Source = (local); Initial Catalog = Library; Integrated Security = True";
         public ViewBooks()
         {
             InitializeComponent();

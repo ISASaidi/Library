@@ -44,6 +44,7 @@ namespace Library
             this.viewMembersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateMemberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeMemberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -135,7 +136,8 @@ namespace Library
             this.memberToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addMemberToolStripMenuItem,
             this.viewMembersToolStripMenuItem,
-            this.updateMemberToolStripMenuItem});
+            this.updateMemberToolStripMenuItem,
+            this.removeMemberToolStripMenuItem});
             this.memberToolStripMenuItem.Name = "memberToolStripMenuItem";
             this.memberToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.memberToolStripMenuItem.Text = "Member";
@@ -143,21 +145,21 @@ namespace Library
             // addMemberToolStripMenuItem
             // 
             this.addMemberToolStripMenuItem.Name = "addMemberToolStripMenuItem";
-            this.addMemberToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.addMemberToolStripMenuItem.Text = "Add / Remove Member";
+            this.addMemberToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addMemberToolStripMenuItem.Text = "Add Member";
             this.addMemberToolStripMenuItem.Click += new System.EventHandler(this.addMemberToolStripMenuItem_Click);
             // 
             // viewMembersToolStripMenuItem
             // 
             this.viewMembersToolStripMenuItem.Name = "viewMembersToolStripMenuItem";
-            this.viewMembersToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.viewMembersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.viewMembersToolStripMenuItem.Text = "View Members";
             this.viewMembersToolStripMenuItem.Click += new System.EventHandler(this.viewMembersToolStripMenuItem_Click);
             // 
             // updateMemberToolStripMenuItem
             // 
             this.updateMemberToolStripMenuItem.Name = "updateMemberToolStripMenuItem";
-            this.updateMemberToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.updateMemberToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.updateMemberToolStripMenuItem.Text = "Update Member";
             this.updateMemberToolStripMenuItem.Click += new System.EventHandler(this.updateMemberToolStripMenuItem_Click);
             // 
@@ -168,6 +170,13 @@ namespace Library
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click_1);
+            // 
+            // removeMemberToolStripMenuItem
+            // 
+            this.removeMemberToolStripMenuItem.Name = "removeMemberToolStripMenuItem";
+            this.removeMemberToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.removeMemberToolStripMenuItem.Text = "Remove Member";
+            this.removeMemberToolStripMenuItem.Click += new System.EventHandler(this.removeMemberToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -208,5 +217,6 @@ namespace Library
         private System.Windows.Forms.ToolStripMenuItem removeBookToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem borrowBookToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem returnBookToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem removeMemberToolStripMenuItem;
     }
 }

@@ -15,6 +15,8 @@ namespace Library
     public partial class AddMember : Form
     {
 
+        MemberRepository memberRepository = new MemberRepository();
+
         public AddMember()
         {
             InitializeComponent();
@@ -23,11 +25,14 @@ namespace Library
         private void btnAdd_Click(object sender, EventArgs e)
         {
 
-            btnAdd.Enabled = false;// Waar moet ik het plaatsen
+            btnAdd.Enabled = false;
             try
             {
-                Member mbr = new Member(txtFirstname.Text, txtLastname.Text, txtAddress.Text, int.Parse(txtHouseNumber.Text), int.Parse(txtZipcode.Text), txtCity.Text, int.Parse(txtPhone_number.Text), txtMail.Text);
-                mbr.AddMember();
+                Member member = new Member(txtFirstname.Text, txtLastname.Text, txtAddress.Text, int.Parse(txtHouseNumber.Text), int.Parse(txtZipcode.Text), txtCity.Text, int.Parse(txtPhone_number.Text), txtMail.Text);
+                memberRepository.AddMember(member);
+
+                
+                MessageBox.Show($"The Member with the id {member.Member_id} has been added");
             }
             finally
             {

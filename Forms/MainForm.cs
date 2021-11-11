@@ -18,58 +18,78 @@ namespace Library
             InitializeComponent();
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)// moet weg
-        {
-           
-
-        }
 
         private void addBookToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
             addBookToolStripMenuItem.Enabled = false;
-            Thread.Sleep(1000);
-            addBookToolStripMenuItem.Enabled = true;
 
-            AddBook ab = new AddBook();
-            ab.Show();
+            try
+            {
+
+                AddBook ab = new AddBook();
+                ab.Show();
+            }
+            finally
+            {
+                addBookToolStripMenuItem.Enabled = true;
+            }
+           
         }
 
         private void updateBookToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
             updateBookToolStripMenuItem.Enabled = false;
-            Thread.Sleep(1000);
-            updateBookToolStripMenuItem.Enabled = true;
 
-            UpdateBook ub = new UpdateBook();
-            ub.Show();
+            try
+            {
+
+                UpdateBook ub = new UpdateBook();
+                ub.Show();
+            }
+            finally
+            {
+                updateBookToolStripMenuItem.Enabled = true;
+            }
+            
         }
 
         private void viewBooksToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
             viewBooksToolStripMenuItem.Enabled = false;
-            Thread.Sleep(1000);
-            viewBooksToolStripMenuItem.Enabled = true;
 
-            ViewBooks vb = new ViewBooks();
-            vb.Show();
+            try
+            {
+
+                ViewBooks vb = new ViewBooks();
+                vb.Show();
+            }
+            finally
+            {
+                viewBooksToolStripMenuItem.Enabled = true;
+            }
+            
         }
 
-        private void borrowingToolStripMenuItem_Click(object sender, EventArgs e)// ik krijg het niet weg
-        {
-           
-        }
+      
 
         private void addMemberToolStripMenuItem_Click(object sender, EventArgs e)
         {
             addMemberToolStripMenuItem.Enabled = false;
-            Thread.Sleep(1000);
-            addMemberToolStripMenuItem.Enabled = true;
 
-            AddMember arm = new AddMember();
-            arm.Show();
+            try
+            {
+                AddMember arm = new AddMember();
+                arm.Show();
+
+            }
+            finally
+            {
+                addMemberToolStripMenuItem.Enabled = true;
+            }
+
 
         }
 
@@ -77,61 +97,125 @@ namespace Library
         {
 
             viewMembersToolStripMenuItem.Enabled = false;
-            Thread.Sleep(1000);
-            viewMembersToolStripMenuItem.Enabled = true;
+            try
+            {
 
-            ViewMember vm = new ViewMember();
-            vm.Show();
+                ViewMember vm = new ViewMember();
+                vm.Show();
+            }
+            finally
+            {
+                viewMembersToolStripMenuItem.Enabled = true;
+            }
+
+
         }
 
         private void updateMemberToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
             updateMemberToolStripMenuItem.Enabled = false;
-            Thread.Sleep(1000);
-            updateMemberToolStripMenuItem.Enabled = true;
+            try
+            {
 
-            UpdateMember um = new UpdateMember();
-            um.Show();
+                UpdateMember um = new UpdateMember();
+                um.Show();
+            }
+            finally
+            {
+                updateMemberToolStripMenuItem.Enabled = true;
+            }
+
+
         }
 
         private void removeBookToolStripMenuItem_Click(object sender, EventArgs e)
         {
             removeBookToolStripMenuItem.Enabled = false;
-            Thread.Sleep(1000);
-            removeBookToolStripMenuItem.Enabled = true;
+            try
+            {
+                RemoveBook rb = new RemoveBook();
+                rb.Show();
+            }
+            finally
+            {
+                removeBookToolStripMenuItem.Enabled = true;
+            }
 
-            RemoveBook rb = new RemoveBook();
-            rb.Show();
+
+
+        }
+
+        private void borrowingToolStripMenuItem_Click(object sender, EventArgs e)// Ik heb het geprobeerd te verwijderen via de Events, maar is mij niet gelukt.Ik heb het trouwens meermaals op die manier gedaan en toen is het wel gelukt, maar hier niet.
+        {
+
         }
 
         private void borrowBookToolStripMenuItem_Click(object sender, EventArgs e)
         {
             borrowBookToolStripMenuItem.Enabled = false;
-            Thread.Sleep(1000);
-            borrowBookToolStripMenuItem.Enabled = true;
+            try
+            {
 
-            BorrowBook br = new BorrowBook();
-            br.Show();
+                BorrowBook br = new BorrowBook();
+                br.Show();
+            }
+            finally
+            {
+                borrowBookToolStripMenuItem.Enabled = true;
+            }
+
+
         }
 
         private void returnBookToolStripMenuItem_Click(object sender, EventArgs e)
         {
             returnBookToolStripMenuItem.Enabled = false;
-            Thread.Sleep(1000);
-            returnBookToolStripMenuItem.Enabled = true;
+            try
+            {
+                ReturnBook bk = new ReturnBook();
+                bk.Show();
+            }
+            finally
+            {
+                returnBookToolStripMenuItem.Enabled = true;
+            }
 
-            ReturnBook bk = new ReturnBook();
-            bk.Show();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)// Ik heb het geprobeerd te verwijderen via de Events, maar is mij niet gelukt. Ik heb het trouwens meermaals op die manier gedaan en toen is het wel gelukt, maar hier niet.
+        {
+
+
         }
 
         private void exitToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             exitToolStripMenuItem.Enabled = false;
-            Thread.Sleep(1000);
-            exitToolStripMenuItem.Enabled = true;
+            try
+            {
+                Application.Exit();
+            }
+            finally
+            {
+                exitToolStripMenuItem.Enabled = true;
+            }
 
-            Application.Exit();
+        }
+
+        private void removeMemberToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            removeMemberToolStripMenuItem.Enabled = false;
+            try
+            {
+                RemoveMember rm = new RemoveMember();
+                rm.Show();
+            }
+            finally
+            {
+                removeMemberToolStripMenuItem.Enabled = true;
+            }
+
         }
     }
 }

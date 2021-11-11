@@ -14,6 +14,8 @@ namespace Library
 {
     public partial class UpdateMember : Form
     {
+        MemberRepository memberRepository = new MemberRepository();
+
         public UpdateMember()
         {
             InitializeComponent();
@@ -24,9 +26,12 @@ namespace Library
             btnUpdate.Enabled = false;
             try
             {
-                Member mbr = new Member(txtFirstName.Text, txtLastName.Text, txtAddress.Text, int.Parse(txtHouseNumber.Text), int.Parse(txtZipCode.Text), txtCity.Text, int.Parse(txtPhoneNumber.Text), txtMail.Text);
-                mbr.Member_id = int.Parse(txtMember_Id.Text);
-                mbr.UpdateMember();
+                Member member = new Member(txtFirstName.Text, txtLastName.Text, txtAddress.Text, int.Parse(txtHouseNumber.Text), int.Parse(txtZipCode.Text), txtCity.Text, int.Parse(txtPhoneNumber.Text), txtMail.Text);
+                var member_id = int.Parse(txtMember_Id.Text);
+                memberRepository.UpdateMember(member, member_id);
+
+                MessageBox.Show($"The member with ID {member_id} has been updated");
+              
             }
             finally
             {

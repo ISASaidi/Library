@@ -15,19 +15,17 @@ namespace Library
     public partial class ViewMember : Form
     {
 
-        string conn = "Data Source = (local); Initial Catalog = Library; Integrated Security = True";
+     
+        MemberRepository memberRepository = new MemberRepository();
 
         public ViewMember()
         {
             InitializeComponent();
         }
 
-        private void ViewMember_Load(object sender, EventArgs e)
-        {
-            using SqlConnection connection = new SqlConnection(conn);
 
-            using var command = connection.CreateCommand();
-            command.CommandText = "select * from [TableMember]";
+        private void SetDataGridView(SqlCommand command)
+        {
 
             SqlDataAdapter da = new SqlDataAdapter(command);
             DataTable dt = new DataTable();
@@ -36,13 +34,22 @@ namespace Library
             dataGridViewMember.DataSource = dt;
         }
 
+
+        private void ViewMember_Load(object sender, EventArgs e)
+        {
+
+            SetDataGridView(memberRepository.GetCommandForAllMembers());
+           
+        }
+      
+
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            btnSearch.Enabled = false;// Waar moet ik het plaatsen
+            btnSearch.Enabled = false;
             try
             {
-                Member mbr = new Member(int.Parse(txtSearchMember_Id.Text));
-                mbr.SearchMember();
+                SetDataGridView(memberRepository.GetCommandFindMember(int.Parse(txtSearchMember_Id.Text)));
+               
             }
             finally
             {
@@ -50,6 +57,21 @@ namespace Library
                 btnSearch.Enabled = true;
             }
 
+        }
+
+        private void btnGetAll_Click(object sender, EventArgs e)
+        {
+            btnGetAll.Enabled = false;
+            try
+            {
+                SetDataGridView(memberRepository.GetCommandForAllMembers());
+
+            }
+            finally
+            {
+
+                btnGetAll.Enabled = true;
+            }
         }
     }
 }

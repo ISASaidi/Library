@@ -27,6 +27,7 @@ namespace Library
             {
                 
                 br.RemoveBook(int.Parse(txtIsbn.Text));
+                MessageBox.Show("The book has been removed");
             }
             finally
             {

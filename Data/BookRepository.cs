@@ -23,18 +23,15 @@ namespace Library
         {
 
             using var command = _connection.CreateCommand();
-            command.CommandText = "insert into [TableBook] (Title, Edition, Author, Genre, Status) Values (@Title, @Edition, @Author, @Genre, @Status); select scope_identity()";
+            command.CommandText = "insert into [TableBook] (Title, Edition, Author, Genre, Status) Values (@Title, @Edition, @Author, @Genre, @Status)";
             command.Parameters.AddWithValue("@Title", book.Title);
             command.Parameters.AddWithValue("@Edition", book.Edition);
             command.Parameters.AddWithValue("@Author", book.Author);
             command.Parameters.AddWithValue("@Genre", book.Genre);
             command.Parameters.AddWithValue("@Status", book.StatusBook);
 
-            using var reader = command.ExecuteReader();
-            reader.Read();
-            MessageBox.Show("The book has been added");
 
-            book.Isbn = (int)reader.GetDecimal(0);
+            command.ExecuteNonQuery();
 
             return book;
         }
@@ -46,7 +43,7 @@ namespace Library
             command.CommandText = "DELETE FROM [TableBook] where Isbn= @Isbn";
             command.Parameters.AddWithValue("@Isbn", Isbn);
             command.ExecuteNonQuery();
-            MessageBox.Show("The book has been removed");
+           
         }
 
         public void UpdateBook(Book book, string status, int isbn)
@@ -71,10 +68,8 @@ namespace Library
         {
 
             using var command = _connection.CreateCommand();
-            command.CommandText = "select * from [TableBook] where Isbn= @Isbn;select scope_identity()";
+            command.CommandText = "select * from [TableBook] where Isbn= @Isbn;";
             command.Parameters.AddWithValue("@Isbn", isbn);
-
-
 
             return command;
 
@@ -83,14 +78,14 @@ namespace Library
 
         public SqlCommand GetCommandForAllBooks()
         {
-            
+
 
             var command = _connection.CreateCommand();
             command.CommandText = "select * from [TableBook]";
 
             return command;
 
-           
+
         }
 
         public void Dispose()
