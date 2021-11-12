@@ -23,7 +23,7 @@ namespace Library
             InitializeComponent();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)// Voeg het boek in [TableBook]
         {
             btnAdd.Enabled = false;
 

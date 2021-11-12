@@ -45,7 +45,7 @@ namespace Library
 
                         Book bk = new Book(txtTitle.Text, txtEdition.Text, txtAuthor.Text, txtGenre.Text);
 
-                        br.UpdateBook(bk, comboBoxStatus.Text, int.Parse(txtIsbn.Text));
+                        br.UpdateBook(bk, comboBoxStatus.Text, int.Parse(txtIsbn.Text));// Het book wordt aangepast. ComboBoxStatus geeft de mogelijkheid om het statuut op "Available" of "Borrowed"
                         MessageBox.Show("Book has been updated");
                         this.Close();
                         

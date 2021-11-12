@@ -69,7 +69,7 @@ namespace Library
                     {
 
 
-                        setDataGridView(bookRepository.GetCommandForBook(int.Parse(txtSearchIsbn.Text)));
+                        setDataGridView(bookRepository.GetCommandForBook(int.Parse(txtSearchIsbn.Text)));// Boeken worden weergegeven in de DataGriedView
 
                     }
 

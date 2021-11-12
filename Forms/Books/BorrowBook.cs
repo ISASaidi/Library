@@ -32,7 +32,7 @@ namespace Library
             dataGridViewBorrows.DataSource = dt;
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)// Knop om een boek te lenen. Het boek wordt toegevoegd in [TableBorrows] en verandert het statuut van het boek in [TableBook]
         {
 
             btnSave.Enabled = false;

@@ -49,8 +49,8 @@ namespace Library
 
                         int isbn = int.Parse(txtIsbn.Text);
 
-                        borrowRepository.DeleteBorrowedBook(isbn);
-                        borrowRepository.UpdateAvailableBook(isbn);
+                        borrowRepository.DeleteBorrowedBook(isbn);// Verwijdert het boek van [TableBorrows]
+                        borrowRepository.UpdateAvailableBook(isbn);// Zet het statuut van het boek in "Available" in [TableBook]
 
                         MessageBox.Show($"The book with ISBN {isbn} has been returned and updated");
                         this.Close();

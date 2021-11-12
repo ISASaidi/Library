@@ -20,7 +20,7 @@ namespace Library
             InitializeComponent();
         }
 
-        private void btnRemove_Click(object sender, EventArgs e)
+        private void btnRemove_Click(object sender, EventArgs e)// verwijdert een lid van [TableMember]
         {
             btnRemove.Enabled = false;
 
@@ -29,7 +29,7 @@ namespace Library
             do
             {
 
-                if (string.IsNullOrEmpty(txtMemberId.Text))
+                if (string.IsNullOrEmpty(txtMemberId.Text))// Gaat na of de ID ingevuld is
                 {
                     string message = "Fill the ISBN in ";
                     string title = "Error";

@@ -20,7 +20,7 @@ namespace Library
             InitializeComponent();
         }
 
-        private void btnRemove_Click(object sender, EventArgs e)
+        private void btnRemove_Click(object sender, EventArgs e)//Verwijdert het boek in [TableBook]
         {
             btnRemove.Enabled = false;
             bool loop = true;
